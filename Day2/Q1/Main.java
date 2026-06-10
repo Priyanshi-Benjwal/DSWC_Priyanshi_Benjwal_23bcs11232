@@ -88,10 +88,8 @@ class HomeHub {
 
         for (SmartDevice device : devices) {
 
-            // Polymorphic call
             device.runDiagnostic();
 
-            // Safe type checking and downcasting
             if (device instanceof BatteryOperated) {
                 BatteryOperated batteryDevice = (BatteryOperated) device;
 
