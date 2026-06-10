@@ -1,28 +1,24 @@
 package Day2.Q3;
 
-// Enum for Door States
 enum DoorState {
     OPEN,
     CLOSED,
     LOCKED
 }
 
-// Custom Unchecked Exception
 class IllegalStateTransitionException extends RuntimeException {
 
     public IllegalStateTransitionException(String message) {
         super(message);
     }
 }
-
-// VaultDoor Class
+s
 class VaultDoor {
 
-    // Strict Encapsulation
     private DoorState state;
 
     public VaultDoor() {
-        state = DoorState.OPEN; // Initial State
+        state = DoorState.OPEN; 
     }
 
     public void closeDoor() {
@@ -36,7 +32,6 @@ class VaultDoor {
 
     public void lockDoor() {
 
-        // Explicit validation
         if (state == DoorState.OPEN) {
             throw new IllegalStateTransitionException(
                 "Cannot lock an OPEN door. Close the door first."
@@ -60,13 +55,11 @@ class VaultDoor {
         }
     }
 
-    // Optional getter (read-only)
     public DoorState getState() {
         return state;
     }
 }
 
-// Driver Class
 public class VaultGuardSystem {
 
     public static void main(String[] args) {
@@ -77,7 +70,6 @@ public class VaultGuardSystem {
 
         try {
 
-            // Illegal Transition
             vault.lockDoor();
 
         } catch (IllegalStateTransitionException e) {
